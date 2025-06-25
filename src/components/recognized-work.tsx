@@ -60,21 +60,15 @@ export default function Recognized() {
   ];
 
   return (
-    <div
-      className="min-h-screen p-8 bg-no-repeat bg-cover bg-center"
-      
-    >
+    <div className="min-h-screen p-6 md:p-8 bg-no-repeat bg-cover bg-center">
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="flex justify-between items-center mb-8">
-          <h1 className="text-4xl md:text-5xl font-light text-white">Recognized for our work</h1>
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
+          <h1 className="text-3xl md:text-5xl font-light text-white">Recognized for our work</h1>
           <button className="px-6 py-3 bg-gray-200 text-gray-800 rounded-full font-medium hover:bg-black hover:text-white transition-colors duration-300">
             VIEW MORE
           </button>
         </div>
-
-        {/* Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {cards.map((card, index) => (
             <div
               key={index}
@@ -85,32 +79,18 @@ export default function Recognized() {
                 backgroundPosition: "center",
               }}
             >
-              {/* Overlay for opacity */}
-              <div className="absolute inset-0 bg-black/20 z-0" />
-
-              {/* Card Content */}
+              <div className="absolute inset-0 bg-black/30 z-0" />
               <div className="relative z-10 flex flex-col h-full justify-between">
-                {/* Category Badge */}
-                <div className="flex justify-start">
-                  <span
-                    className={`${card.categoryColor} text-white text-xs font-semibold px-3 py-1 rounded-full`}
-                  >
+                <div>
+                  <span className={`${card.categoryColor} text-white text-xs font-semibold px-3 py-1 rounded-full`}>
                     {card.category}
                   </span>
                 </div>
-
-                {/* Text Content */}
                 <div className="flex flex-col">
                   <h3 className="text-lg font-semibold mb-2 leading-tight">{card.title}</h3>
-                  {card.subtitle && (
-                    <p className="text-sm opacity-90 mb-2">{card.subtitle}</p>
-                  )}
-                  {card.description && (
-                    <p className="text-sm opacity-90 mb-2">{card.description}</p>
-                  )}
-                  {card.author && (
-                    <p className="text-sm opacity-75">{card.author}</p>
-                  )}
+                  {card.subtitle && <p className="text-sm opacity-90 mb-2">{card.subtitle}</p>}
+                  {card.description && <p className="text-sm opacity-90 mb-2">{card.description}</p>}
+                  {card.author && <p className="text-sm opacity-75">{card.author}</p>}
                 </div>
               </div>
             </div>
