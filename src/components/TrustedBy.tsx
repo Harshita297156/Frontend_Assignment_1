@@ -39,18 +39,18 @@ export default function TrustedBy() {
 
   return (
     <div className="w-full py-12 px-4 bg-white text-black text-center">
-      <h2 className="text-3xl font-semibold mb-2">Innovating at Scale.</h2>
-      <h3 className="text-3xl font-semibold mb-10">Leading with Impact.</h3>
+      <h2 className="text-2xl md:text-3xl font-semibold mb-2">Innovating at Scale.</h2>
+      <h3 className="text-2xl md:text-3xl font-semibold mb-8">Leading with Impact.</h3>
 
       <div
         ref={scrollRef}
-        className="flex overflow-x-hidden w-full mx-auto max-w-5xl"
+        className="flex overflow-x-hidden w-full mx-auto max-w-6xl"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <div className="flex shrink-0 gap-10 px-4">
+        <div className="flex shrink-0 gap-6 md:gap-10 px-4">
           {[...companies, ...companies].map((company, index) => (
-            <div key={index} className="flex-shrink-0 h-10 flex items-center justify-center">
+            <div key={index} className="flex-shrink-0 h-10 flex items-center justify-center min-w-[80px]">
               <Image
                 src={company.logo}
                 alt={company.name}
