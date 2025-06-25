@@ -1,16 +1,16 @@
-"use client"
+"use client";
 
-import { useState } from "react"
+import { useState } from "react";
 
 export default function Platforms() {
-  const [hoveredCard, setHoveredCard] = useState<number | null>(null)
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   const platforms = [
     {
       id: 1,
       title: "Fintech",
       image: "/images/platforms-1.png",
-      hoverOverlay: "from-[#ffaa48]/70 to-[#f7545f]/70", // Semi-transparent gradient
+      hoverOverlay: "from-[#ffaa48]/70 to-[#f7545f]/70",
       expandedContent: {
         description:
           "At Conviva, we bring ideas to life through AI-driven platforms that unlock growth, simplify complexity, and drive impactful value in a dynamic digital world.",
@@ -54,24 +54,23 @@ export default function Platforms() {
         cta: "EXPLORE REVTECH INNOVATION",
       },
     },
-  ]
+  ];
 
   return (
-    <div className="max-w-7xl mx-auto px-6 py-16">
-      <div className="mb-12">
-        <h1 className="text-5xl font-bold text-gray-900 mb-4">Platforms</h1>
-        <p className="text-xl text-gray-600">Turning big ideas for tomorrows businesses</p>
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16">
+      <div className="mb-12 text-center">
+        <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">Platforms</h1>
+        <p className="text-lg sm:text-xl text-gray-600">Turning big ideas for tomorrow's businesses</p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {platforms.map((platform) => (
           <div
             key={platform.id}
-            className="relative h-96 rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 ease-in-out"
+            className="relative h-[400px] sm:h-[440px] rounded-2xl overflow-hidden cursor-pointer transition-all duration-300 ease-in-out"
             onMouseEnter={() => setHoveredCard(platform.id)}
             onMouseLeave={() => setHoveredCard(null)}
           >
-            {/* Background Image Only */}
             <div
               className="absolute inset-0"
               style={{
@@ -81,21 +80,17 @@ export default function Platforms() {
               }}
             />
 
-            {/* Hover Gradient Overlay - Semi-transparent */}
             <div
               className={`absolute inset-0 bg-gradient-to-r ${platform.hoverOverlay} transition-opacity duration-300 ${
                 hoveredCard === platform.id ? "opacity-100" : "opacity-0"
               }`}
             />
 
-            {/* Content */}
             <div className="relative h-full flex flex-col justify-between p-6 text-white z-10">
-              {/* Title - Always visible */}
               <div>
                 <h3 className="text-2xl font-bold mb-4">{platform.title}</h3>
               </div>
 
-              {/* Expanded Content - Only visible on hover */}
               <div
                 className={`transition-all duration-300 ease-in-out ${
                   hoveredCard === platform.id
@@ -104,10 +99,12 @@ export default function Platforms() {
                 }`}
               >
                 <div className="space-y-4">
-                  <p className="text-sm leading-relaxed text-gray-100">{platform.expandedContent.description}</p>
-
-                  <div className="text-yellow-300 font-semibold text-base">{platform.expandedContent.productName}</div>
-
+                  <p className="text-sm leading-relaxed text-gray-100">
+                    {platform.expandedContent.description}
+                  </p>
+                  <div className="text-yellow-300 font-semibold text-base">
+                    {platform.expandedContent.productName}
+                  </div>
                   <div className="pt-2">
                     <button className="text-white font-bold text-sm underline hover:text-gray-200 transition-colors">
                       {platform.expandedContent.cta}
@@ -120,5 +117,5 @@ export default function Platforms() {
         ))}
       </div>
     </div>
-  )
+  );
 }
