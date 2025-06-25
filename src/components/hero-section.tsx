@@ -1,6 +1,5 @@
 "use client";
 import { motion } from "framer-motion";
-
 import { useState, useRef } from "react";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -19,17 +18,14 @@ export default function HeroSection() {
 
   return (
     <section className="relative min-h-screen bg-black overflow-hidden">
-      {/* Background image */}
       <div className="absolute inset-0 z-0">
         <img
           src="/images/herosection.png"
           alt="gradient glow"
           className="absolute inset-0 w-full h-full object-cover object-left"
         />
-
-        {/* White diagonal overlay with video */}
         <div
-          className="absolute top-0 right-0 w-1/2 h-full bg-gray-100 z-10 flex items-center justify-center"
+          className="absolute top-0 right-0 w-full md:w-1/2 h-full bg-gray-100 z-10 flex items-center justify-center"
           style={{
             clipPath: "polygon(20% 0%, 100% 0%, 100% 100%, 0% 100%)",
           }}
@@ -45,12 +41,11 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Content */}
       <div className="relative z-20 flex items-center min-h-screen px-6">
         <div className="max-w-7xl mx-auto w-full">
           <div className="max-w-2xl">
             <motion.h1
-              className="text-white text-6xl md:text-7xl font-light leading-tight mb-8"
+              className="text-gray-700 md:text-white text-5xl sm:text-6xl md:text-7xl font-light leading-tight mb-8"
               initial="hidden"
               animate="visible"
               variants={{
@@ -77,14 +72,14 @@ export default function HeroSection() {
               ))}
             </motion.h1>
 
-            <p className="text-gray-300 text-lg mb-12 max-w-lg">
+            <p className="text-gray-300 text-lg mb-10 max-w-md sm:max-w-lg">
               Empowering organizations to unlock new revenue models and innovate
               at scale
             </p>
 
             <Button
               onClick={handlePlay}
-              className="bg-red-500 hover:bg-red-600 text-white px-8 py-3 rounded-full flex items-center space-x-2 group"
+              className="bg-red-500 hover:bg-red-600 text-white px-6 sm:px-8 py-3 rounded-full flex items-center space-x-2 group"
             >
               <span>INNOVATE FOR IMPACT</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -93,8 +88,7 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Bottom indicators (video switcher) */}
-      <div className="absolute bottom-8 left-6 flex space-x-2 z-20">
+      <div className="absolute bottom-6 sm:bottom-8 left-6 flex space-x-2 z-20">
         {videos.map((_, index) => (
           <div
             key={index}
@@ -106,11 +100,10 @@ export default function HeroSection() {
         ))}
       </div>
 
-      {/* Play video button */}
-      <div className="absolute bottom-8 right-8 z-20">
+      <div className="absolute bottom-6 sm:bottom-8 right-6 sm:right-8 z-20">
         <Button
           onClick={handlePlay}
-          className="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-full flex items-center space-x-2"
+          className="bg-red-500 hover:bg-red-600 text-white px-4 sm:px-6 py-2 rounded-full flex items-center space-x-2"
         >
           <span>PLAY VIDEO</span>
           <ArrowRight className="w-4 h-4" />
